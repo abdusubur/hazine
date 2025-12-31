@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mira Analytics - Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #000000;
+        }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        /* Glass / Border Utilities */
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-solid {
+            background: #0A0A0A;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Animations */
+        @keyframes scroll-up {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        @keyframes scroll-down {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+
+        .animate-scroll-up {
+            animation: scroll-up 40s linear infinite;
+        }
+        .animate-scroll-down {
+            animation: scroll-down 45s linear infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-border-mask {
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+    </style>
+</head>
+<body class="bg-black text-slate-400 antialiased overflow-hidden flex h-screen selection:bg-indigo-500/30 selection:text-indigo-200">
+
+    <!-- Sidebar -->
+    <aside class="w-64 border-r border-white/5 bg-[#050505] flex flex-col justify-between h-full z-20 hidden md:flex">
+        <div>
+            <!-- Logo -->
+            <div class="h-16 flex items-center px-6 border-b border-white/5">
+                <span class="text-white font-semibold text-lg tracking-tight">MIRA</span>
+            </div>
+
+            <!-- Navigation -->
+            <div class="px-3 py-6 space-y-1">
+                <p class="px-3 text-[10px] font-medium text-slate-500 uppercase tracking-widest mb-2">Platform</p>
+                
+                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all group">
+                    <i data-lucide="layout-dashboard" class="w-4 h-4 group-hover:text-slate-300 transition-colors"></i>
+                    <span class="text-sm font-medium">Dashboard</span>
+                </a>
+
+                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-indigo-500/10 text-white border border-indigo-500/20 transition-all group">
+                    <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
+                    <span class="text-sm font-medium">Infrastructure</span>
+                </a>
+
+                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all group">
+                    <i data-lucide="credit-card" class="w-4 h-4 group-hover:text-slate-300 transition-colors"></i>
+                    <span class="text-sm font-medium">Revenue</span>
+                </a>
+
+                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all group">
+                    <i data-lucide="settings" class="w-4 h-4 group-hover:text-slate-300 transition-colors"></i>
+                    <span class="text-sm font-medium">Settings</span>
+                </a>
+            </div>
+
+            <div class="px-3 py-2 space-y-1">
+                <p class="px-3 text-[10px] font-medium text-slate-500 uppercase tracking-widest mb-2">Account</p>
+                
+                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all group">
+                    <div class="w-4 h-4 rounded-full bg-slate-800 flex items-center justify-center text-[8px] text-white border border-slate-700">MJ</div>
+                    <span class="text-sm font-medium">Profile</span>
+                </a>
+                
+                <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all group">
+                    <i data-lucide="log-out" class="w-4 h-4 group-hover:text-slate-300 transition-colors"></i>
+                    <span class="text-sm font-medium">Sign Out</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="p-4 border-t border-white/5">
+            <div class="glass-panel p-3 rounded-lg bg-gradient-to-br from-slate-900 to-black">
+                <div class="flex items-center gap-2 mb-2">
+                    <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <span class="text-xs text-slate-300 font-medium">System Optimal</span>
+                </div>
+                <div class="h-1 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-emerald-500 w-full rounded-full opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-hidden relative bg-black">
+        <!-- Background Glow -->
+        <div class="absolute top-[-20%] left-[10%] w-[800px] h-[800px] bg-indigo-900/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+        <div class="absolute bottom-[-20%] right-[0%] w-[600px] h-[600px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
+
+        <!-- Header -->
+        <header class="h-16 border-b border-white/5 flex items-center justify-between px-8 z-10 bg-black/50 backdrop-blur-md sticky top-0">
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm">
+                <span class="text-slate-500">Pages</span>
+                <span class="text-slate-600">/</span>
+                <span class="text-white font-medium">Infrastructure</span>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-4">
+                <div class="relative group hidden sm:block">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 group-focus-within:text-indigo-400 transition-colors"></i>
+                    <input type="text" placeholder="Search stack..." class="bg-[#0f0f10] border border-white/10 rounded-lg pl-9 pr-4 py-1.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/20 w-64 transition-all">
+                </div>
+                <button class="p-2 text-slate-400 hover:text-white transition-colors">
+                    <i data-lucide="bell" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Scrollable Area -->
+        <div class="flex-1 overflow-y-auto z-10 scroll-smooth">
+            <div class="max-w-7xl mx-auto px-8 py-12 lg:py-20">
+                
+                <div class="flex flex-col lg:flex-row gap-20 items-center lg:items-start min-h-[80vh]">
+                    
+                    <!-- Left Column: Content -->
+                    <div class="w-full lg:w-5/12 space-y-10 pt-10">
+                        <div class="space-y-6">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 w-fit">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                <span class="text-[10px] font-semibold text-indigo-200 tracking-wider uppercase">Infrastructure</span>
+                            </div>
+                            
+                            <h1 class="text-6xl md:text-7xl font-semibold text-white tracking-tighter leading-[0.9]">
+                                The<br/>
+                                <span class="text-slate-500">Substrate.</span>
+                            </h1>
+                            
+                            <p class="text-lg text-slate-400 leading-relaxed max-w-md font-light">
+                                We don't just build websites; we engineer high-velocity digital ecosystems. A curated stack of best-in-class technologies ensures scalability from day one.
+                            </p>
+                        </div>
+
+                        <!-- Feature List -->
+                        <div class="space-y-6 pt-4">
+                            <div class="flex items-start gap-4 group">
+                                <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors">
+                                    <i data-lucide="box" class="w-5 h-5 text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-medium mb-1">Modular Architecture</h3>
+                                    <p class="text-xs text-slate-500 font-mono tracking-wide uppercase">React / Next.js / Astro</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4 group">
+                                <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors">
+                                    <i data-lucide="database" class="w-5 h-5 text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-medium mb-1">Data Liquidity</h3>
+                                    <p class="text-xs text-slate-500 font-mono tracking-wide uppercase">Supabase / Postgres / Redis</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4 group">
+                                <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/10 transition-colors">
+                                    <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-medium mb-1">Global Edge</h3>
+                                    <p class="text-xs text-slate-500 font-mono tracking-wide uppercase">Vercel / Cloudflare</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <div class="pt-4">
+                            <button class="group relative px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-white/20 overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity blur-md"></div>
+                                <span class="relative flex items-center gap-2 text-sm font-semibold text-white tracking-widest uppercase">
+                                    Explore Full Stack
+                                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Animated Cards -->
+                    <div class="w-full lg:w-7/12 h-[600px] lg:h-[700px] relative gradient-border-mask overflow-hidden">
+                        <div class="grid grid-cols-2 gap-5 h-full">
+                            
+                            <!-- Column 1 (Scrolling Up) -->
+                            <div class="space-y-5 animate-scroll-up w-full">
+                                <!-- Card: React -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-indigo-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="atom" class="w-8 h-8 text-blue-400"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">React</h4>
+                                        <p class="text-xs text-slate-500">Library</p>
+                                    </div>
+                                </div>
+                                <!-- Card: Tailwind -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-cyan-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="wind" class="w-8 h-8 text-cyan-400"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Tailwind</h4>
+                                        <p class="text-xs text-slate-500">Styling</p>
+                                    </div>
+                                </div>
+                                <!-- Card: OpenAI -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-white/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">OpenAI</h4>
+                                        <p class="text-xs text-slate-500">Intelligence</p>
+                                    </div>
+                                </div>
+                                <!-- Card: Vercel -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-white/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <svg class="w-8 h-8 text-white fill-white" viewBox="0 0 24 24"><path d="M12 1L24 22H0L12 1Z"/></svg>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Vercel</h4>
+                                        <p class="text-xs text-slate-500">Deployment</p>
+                                    </div>
+                                </div>
+                                <!-- Card: Github -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-slate-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="github" class="w-8 h-8 text-white"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">GitHub</h4>
+                                        <p class="text-xs text-slate-500">VCS</p>
+                                    </div>
+                                </div>
+
+                                <!-- DUPLICATE FOR LOOP -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-indigo-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="atom" class="w-8 h-8 text-blue-400"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">React</h4>
+                                        <p class="text-xs text-slate-500">Library</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-cyan-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="wind" class="w-8 h-8 text-cyan-400"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Tailwind</h4>
+                                        <p class="text-xs text-slate-500">Styling</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-white/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">OpenAI</h4>
+                                        <p class="text-xs text-slate-500">Intelligence</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-white/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <svg class="w-8 h-8 text-white fill-white" viewBox="0 0 24 24"><path d="M12 1L24 22H0L12 1Z"/></svg>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Vercel</h4>
+                                        <p class="text-xs text-slate-500">Deployment</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-slate-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="github" class="w-8 h-8 text-white"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">GitHub</h4>
+                                        <p class="text-xs text-slate-500">VCS</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Column 2 (Scrolling Down) -->
+                            <div class="space-y-5 animate-scroll-down w-full">
+                                <!-- Card: Figma -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-pink-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="figma" class="w-8 h-8 text-pink-400"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Figma</h4>
+                                        <p class="text-xs text-slate-500">Design</p>
+                                    </div>
+                                </div>
+                                <!-- Card: Stripe -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-violet-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <div class="text-violet-400 font-bold text-2xl tracking-tighter">S</div>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Stripe</h4>
+                                        <p class="text-xs text-slate-500">Payments</p>
+                                    </div>
+                                </div>
+                                <!-- Card: Notion -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-slate-200/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <div class="w-8 h-8 border-2 border-slate-300 rounded flex items-center justify-center font-serif text-slate-300 font-bold">N</div>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Notion</h4>
+                                        <p class="text-xs text-slate-500">Wiki</p>
+                                    </div>
+                                </div>
+                                <!-- Card: Supabase -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-emerald-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="database-zap" class="w-8 h-8 text-emerald-400"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Supabase</h4>
+                                        <p class="text-xs text-slate-500">Database</p>
+                                    </div>
+                                </div>
+                                <!-- Card: Linear -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-purple-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <div class="w-6 h-6 rounded-full border border-purple-400"></div>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Linear</h4>
+                                        <p class="text-xs text-slate-500">Planning</p>
+                                    </div>
+                                </div>
+
+                                <!-- DUPLICATE FOR LOOP -->
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-pink-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="figma" class="w-8 h-8 text-pink-400"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Figma</h4>
+                                        <p class="text-xs text-slate-500">Design</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-violet-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <div class="text-violet-400 font-bold text-2xl tracking-tighter">S</div>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Stripe</h4>
+                                        <p class="text-xs text-slate-500">Payments</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-slate-200/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <div class="w-8 h-8 border-2 border-slate-300 rounded flex items-center justify-center font-serif text-slate-300 font-bold">N</div>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Notion</h4>
+                                        <p class="text-xs text-slate-500">Wiki</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-emerald-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <i data-lucide="database-zap" class="w-8 h-8 text-emerald-400"></i>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Supabase</h4>
+                                        <p class="text-xs text-slate-500">Database</p>
+                                    </div>
+                                </div>
+                                <div class="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-purple-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                    <div class="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                    <div class="w-6 h-6 rounded-full border border-purple-400"></div>
+                                    <div>
+                                        <h4 class="text-white font-medium tracking-tight">Linear</h4>
+                                        <p class="text-xs text-slate-500">Planning</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Floating Footer Badge -->
+        <div class="absolute bottom-6 right-6 z-20">
+            <div class="bg-[#111] border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 shadow-2xl">
+                <i data-lucide="layers" class="w-3 h-3 text-slate-400"></i>
+                <span class="text-xs font-medium text-slate-400">Made in Aura</span>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
