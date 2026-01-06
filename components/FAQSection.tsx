@@ -4,20 +4,20 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What is the typical deployment velocity?",
-    answer: "We aim for rapid iteration. Initial deployment usually happens within 2 weeks of the kickoff, with subsequent updates deployed continuously via our automated CI/CD pipelines.",
+    question: "Does Nexus work offline?",
+    answer: "Yes, Nexus has a robust offline mode. You can continue scanning products and processing sales even if your internet goes down. Data syncs automatically once you're back online.",
   },
   {
-    question: "Do you integrate with internal engineering teams?",
-    answer: "Yes, seamless integration is a core part of our protocol. We can work alongside your existing team, embedding into your Slack, Jira, and GitHub workflows to ensure transparency and collaboration.",
+    question: "Can I integrate with my existing POS hardware?",
+    answer: "Most likely. Nexus supports a wide range of barcode scanners, receipt printers, and cash drawers. Contact our sales team for a specific compatibility check.",
   },
   {
-    question: "Is post-launch support included?",
-    answer: "Absolutely. We provide dedicated support post-launch, including monitoring, bug fixes, and infrastructure optimization to ensure your platform scales effortlessly.",
+    question: "Is training included for my staff?",
+    answer: "Yes, all plans come with access to our video training library. Growth and Enterprise plans include dedicated onboarding sessions for your warehouse managers and store staff.",
   },
   {
-    question: "What is the preferred tech stack?",
-    answer: "Our substrate is built on Next.js, React, and Tailwind for the frontend, backed by Supabase or Postgres. We deploy on Vercel for the edge network speed and reliability.",
+    question: "How secure is my sales data?",
+    answer: "Your data is encrypted at rest and in transit using enterprise-grade security standards. We perform daily backups and comply with GDPR and CCPA regulations.",
   },
 ];
 
@@ -32,13 +32,13 @@ export default function FAQSection() {
           {/* Left Column: Header */}
           <div className="w-full lg:w-1/3 animate-fade-in-up animate-on-scroll">
             <div className="text-xs font-mono text-slate-500 mb-2 uppercase tracking-widest">
-              05 — Protocols
+              Support
             </div>
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-6">
-              Operational <br /> Queries
+              Common <br /> Questions
             </h2>
             <p className="text-lg text-slate-400 leading-relaxed">
-              Standard configurations and compatibility checks for new partners.
+              Everything you need to know about setting up your inventory system.
             </p>
           </div>
 

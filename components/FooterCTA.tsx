@@ -17,10 +17,10 @@ export default function FooterCTA() {
           
           {/* Newsletter Content */}
           <h2 className="text-4xl md:text-5xl font-medium text-white mb-6 tracking-tight">
-            Join our newsletter
+            Ready to modernize?
           </h2>
           <p className="text-slate-400 text-lg max-w-xl mb-10 leading-relaxed">
-            Join our newsletter for exclusive insights, announcements, and special offers delivered directly to your inbox.
+            Start your 14-day free trial today. No credit card required. Transform how you manage your inventory and sales.
           </p>
 
           <form className="flex flex-col sm:flex-row w-full max-w-md gap-3 mb-20">

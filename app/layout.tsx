@@ -16,8 +16,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "AuraBuild - Design Agency",
-  description: "Crafting Digital Experiences That Resonate",
+  title: "Hazine - Omni-channel Inventory & Sales Management",
+  description: "The all-in-one platform for markets and warehouses to track products and manage sales across physical stores and online channels.",
 };
 
 export default function RootLayout({

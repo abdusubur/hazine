@@ -5,17 +5,17 @@ const testimonials = {
     {
       type: "review",
       stars: 5,
-      text: "\"This platform completely changed how we approach design systems. The speed and consistency we've achieved is mind-blowing. It's the standard we've been looking for.\"",
+      text: "\"Nexus completely transformed our inventory management. We went from manual spreadsheets to real-time tracking across 3 locations. Stock accuracy is up 99%.\"",
       name: "Sarah Jenkins",
-      role: "Product Designer at Stripe",
+      role: "Operations Manager at FreshMart",
       avatar: "https://i.pravatar.cc/150?u=sarah",
       border: "dotted",
     },
     {
       type: "twitter",
-      handle: "@jamesbuilds",
-      text: "Just shipped my portfolio using the new components. The attention to detail is insane. 🚀",
-      name: "James Doe",
+      handle: "@warehouse_jim",
+      text: "Just hit 10k orders processed this month without a single shipping error thanks to the new barcode scanning workflow. 📦🚀",
+      name: "Jim Doe",
       avatar: "JD",
       border: "solid",
     },
@@ -23,34 +23,34 @@ const testimonials = {
   col2: [
     {
       type: "quote",
-      text: "\"I've used every UI kit out there. Nothing comes close to the polish and flexibility of this one. It's not just a library, it's a design education.\"",
+      text: "\"I've tried every POS system out there. Nothing comes close to the speed and reliability of this platform. It handles our Black Friday traffic without a glitch.\"",
       name: "Michael Chen",
-      role: "CTO at Vercel",
+      role: "Owner at TechGear",
       avatar: "https://i.pravatar.cc/150?u=michael",
       border: "dotted",
     },
     {
       type: "plain",
-      text: "\"Finally, a tool that bridges the gap between design and code perfectly. Our developer handoff time has been cut in half.\"",
-      border: "solid", // In the image this looks like a bottom card in the middle column
+      text: "\"Finally, a tool that syncs our physical store inventory with our Shopify site instantly. No more overselling!\"",
+      border: "solid",
     },
   ],
   col3: [
     {
       type: "review",
       stars: 5,
-      text: "\"We redesigned our entire SaaS dashboard in a weekend. The components are not just beautiful, they're robust and accessible.\"",
+      text: "\"We scaled from 1 to 5 warehouses in a year. Nexus made it possible to train new staff in minutes, not days. The interface is incredibly intuitive.\"",
       name: "David Kim",
-      role: "Founder at Stack",
+      role: "Logistics Director at UrbanSupply",
       avatar: "https://i.pravatar.cc/150?u=david",
       border: "solid",
     },
     {
       type: "review_text_only",
-      text: "\"Best investment we made for our design team this year. The ROI was immediate and the support is fantastic.\"",
+      text: "\"Best investment we made for our retail chain this year. The ROI was immediate and the support team is actually helpful.\"",
       name: "Anna K.",
-      role: "Director of Product",
-      avatar: "AK", // Initials
+      role: "Retail Director",
+      avatar: "AK",
       border: "solid",
     },
   ],
@@ -58,7 +58,7 @@ const testimonials = {
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-black text-white py-24 border-t border-white/5 relative overflow-hidden">
+    <section className="bg-[#020004] text-white py-24 border-t border-white/5 relative overflow-hidden">
       {/* Background Gradient/Glow (Subtle) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-white/5 blur-[120px] rounded-full pointer-events-none z-0 opacity-20"></div>
 
@@ -67,10 +67,10 @@ export default function TestimonialsSection() {
         {/* Header */}
         <div className="text-center mb-20 animate-fade-in-up animate-on-scroll">
           <h2 className="text-5xl md:text-6xl font-medium tracking-tight mb-6">
-            Loved by <span className="text-slate-500">passionate builders</span>
+            Trusted by <span className="text-slate-500">modern retailers</span>
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Join thousands of developers and designers who rely on our tools to ship better products, faster.
+            Join thousands of business owners who rely on Nexus to streamline operations and grow sales.
           </p>
         </div>
 
