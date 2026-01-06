@@ -1,9 +1,29 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import BackgroundBeams from "./BackgroundBeams";
 import DashboardMockup from "./DashboardMockup";
 
 export default function Hero() {
+  const mockupRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (mockupRef.current) {
+        const scrollY = window.scrollY;
+        // Calculate rotation: start at 12, end at 0 after 400px scroll
+        const rotation = Math.max(0, 12 - (scrollY / 400) * 12);
+        mockupRef.current.style.transform = `rotateX(${rotation}deg)`;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Initial call
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 w-full overflow-x-hidden">
       
@@ -54,7 +74,11 @@ export default function Hero() {
                 {/* Glow Behind */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[80%] bg-indigo-600/20 blur-[100px] rounded-full z-[-1]"></div>
 
-                <div className="transform rotate-x-12 transition-transform duration-700 hover:rotate-0">
+                <div 
+                    ref={mockupRef}
+                    className="transform will-change-transform"
+                    style={{ transform: "rotateX(12deg)" }}
+                >
                     <DashboardMockup />
                 </div>
             </div>

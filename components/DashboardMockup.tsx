@@ -7,7 +7,7 @@ export default function DashboardMockup() {
       {/* Sidebar */}
       <div className="w-64 border-r border-white/10 p-6 flex-col hidden md:flex bg-[#050505]">
         <div className="mb-10 pl-2">
-          <h1 className="text-xl font-bold text-white tracking-wide">MIRA</h1>
+          <h1 className="text-xl font-bold text-white tracking-wide">HAZINE</h1>
         </div>
         
         <nav className="space-y-1 flex-1">

@@ -17,16 +17,24 @@ export default function InfrastructureSection() {
     { name: "Linear", category: "Planning", icon: <div className="w-6 h-6 rounded-full border border-purple-400"></div> },
   ];
 
+  const col3 = [
+    { name: "Three.js", category: "3D", icon: <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2-1-2-1-2 1 2 1zm0-3l-2 1 2 1 2-1-2-1zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> },
+    { name: "TypeScript", category: "Language", icon: <span className="text-blue-500 font-bold text-xl">TS</span> },
+    { name: "PostgreSQL", category: "Database", icon: <svg className="w-8 h-8 text-blue-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> },
+    { name: "Redis", category: "Cache", icon: <svg className="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg> },
+    { name: "AWS", category: "Cloud", icon: <span className="text-orange-400 font-bold text-xl">AWS</span> },
+  ];
+
   return (
     <section className="relative w-full py-24 bg-[#020004] text-white overflow-hidden">
         {/* Background Glows */}
         <div className="absolute top-[-20%] left-[10%] w-[800px] h-[800px] bg-indigo-900/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
         <div className="absolute bottom-[-20%] right-[0%] w-[600px] h-[600px] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
-        <div className="max-w-7xl mx-auto px-8 relative z-10 flex flex-col lg:flex-row gap-20 items-center lg:items-start h-[800px]">
+        <div className="max-w-7xl mx-auto px-8 relative z-10 flex flex-col lg:flex-row gap-10 items-center lg:items-start h-[800px]">
             
             {/* Left Column: Content */}
-            <div className="w-full lg:w-5/12 space-y-10 pt-10 sticky top-24 self-start animate-fade-in-up animate-on-scroll">
+            <div className="w-full lg:w-4/12 space-y-10 pt-10 sticky top-24 self-start animate-fade-in-up animate-on-scroll z-20 backdrop-blur-md bg-[#020004]/70 p-8 rounded-2xl border border-white/5 shadow-2xl gradient-border-mask">
                 <div className="space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 w-fit">
                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
@@ -75,11 +83,11 @@ export default function InfrastructureSection() {
             </div>
 
             {/* Right Column: Animated Cards */}
-            <div className="w-full lg:w-7/12 h-full relative gradient-border-mask overflow-hidden animate-fade-in-up animate-on-scroll delay-200">
-                <div className="grid grid-cols-2 gap-5 h-full">
+            <div className="w-full lg:w-8/12 h-[120%] -mt-20 relative gradient-border-mask overflow-visible animate-fade-in-up animate-on-scroll delay-200 perspective-[1000px] z-10" style={{ perspective: '1000px' }}>
+                <div className="grid grid-cols-3 gap-5 h-full transform-style-3d rotate-y-[-12deg] rotate-x-[5deg] scale-110 -translate-x-10">
                     
                     {/* Column 1 (Scrolling Up) */}
-                    <div className="space-y-5 animate-scroll-up w-full" style={{ willChange: 'transform' }}>
+                    <div className="space-y-5 animate-scroll-up w-full opacity-60 hover:opacity-100 transition-opacity duration-500" style={{ willChange: 'transform' }}>
                         {[...col1, ...col1].map((item, idx) => (
                             <div key={`col1-${idx}`} className="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-indigo-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
                                 <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
@@ -96,6 +104,20 @@ export default function InfrastructureSection() {
                     <div className="space-y-5 animate-scroll-down w-full" style={{ willChange: 'transform' }}>
                         {[...col2, ...col2].map((item, idx) => (
                             <div key={`col2-${idx}`} className="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-pink-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
+                                <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                                {item.icon}
+                                <div>
+                                    <h4 className="text-white font-medium tracking-tight">{item.name}</h4>
+                                    <p className="text-xs text-slate-500">{item.category}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                     {/* Column 3 (Scrolling Up) */}
+                     <div className="space-y-5 animate-scroll-up w-full" style={{ willChange: 'transform', animationDelay: '-10s' }}>
+                        {[...col3, ...col3].map((item, idx) => (
+                            <div key={`col3-${idx}`} className="glass-panel-solid p-5 rounded-xl border border-white/10 relative group hover:border-blue-500/30 transition-colors aspect-[4/3] flex flex-col justify-between">
                                 <div className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
                                 {item.icon}
                                 <div>
