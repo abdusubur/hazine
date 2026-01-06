@@ -7,6 +7,7 @@ import FAQSection from "@/components/FAQSection";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FooterCTA from "@/components/FooterCTA";
+import { Analytics } from '@vercel/analytics/next';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <PricingSection />
       <TestimonialsSection />
       <FooterCTA />
+      <Analytics />
       {/* 
         The following sections from the previous design are temporarily disabled 
         to match the new "Finance/Nexus" theme and structure.

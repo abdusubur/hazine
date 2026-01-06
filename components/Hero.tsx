@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import BackgroundBeams from "./BackgroundBeams";
 import DashboardMockup from "./DashboardMockup";
+import Link from "next/link";
 
 export default function Hero() {
     const mockupRef = useRef<HTMLDivElement>(null);
@@ -32,12 +33,12 @@ export default function Hero() {
 
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
 
-                            {/* Badge */}
-                            <a href="#" className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:bg-slate-800/50 hover:border-slate-700 transition-all group mb-8 animate-fade-in-up animate-on-scroll">
-                                <span className="bg-indigo-500/20 text-indigo-300 text-xs font-medium px-2 py-0.5 rounded uppercase tracking-wide">New</span>
-                                <span className="text-sm text-slate-300">Hazine 4.0 is available</span>
-                                <svg className="w-4 h-4 text-slate-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </a>
+                {/* Badge */}
+                <a href="#" className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/50 hover:bg-slate-800/50 hover:border-slate-700 transition-all group mb-8 animate-fade-in-up animate-on-scroll">
+                    <span className="bg-indigo-500/20 text-indigo-300 text-xs font-medium px-2 py-0.5 rounded uppercase tracking-wide">New</span>
+                    <span className="text-sm text-slate-300">Hazine 4.0 is available</span>
+                    <svg className="w-4 h-4 text-slate-500 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
                 {/* Hero Text */}
                 <h1 className="text-5xl sm:text-7xl font-medium text-white tracking-tight leading-[1.1] mb-6 animate-fade-in-up animate-on-scroll delay-200">
                     Master Your Inventory. <br className="hidden sm:block" />
@@ -60,11 +61,16 @@ export default function Hero() {
 
 
                     {/* Animated Shiny Button 2 */}
-                    <button className="shiny-cta flex gap-2 flex-row focus:outline-none group">
-                        <span className="items-center">
-                            Request Demo
-                        </span>
-                        <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <button className="shiny-cta  focus:outline-none group">
+                        <Link
+                            href="/book-demo"
+                            className="flex gap-2 flex-row"
+                        >
+                            <span className="items-center">
+                                Request Demo
+                            </span>
+                            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </Link>
                     </button>
 
                 </div>
