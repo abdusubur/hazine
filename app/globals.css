@@ -11,6 +11,13 @@
 }
 
 @layer utilities {
+  .animate-on-scroll {
+    animation-play-state: paused !important;
+  }
+  .animate-on-scroll.animate {
+    animation-play-state: running !important;
+  }
+
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;

@@ -30,7 +30,7 @@ export default function FAQSection() {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           
           {/* Left Column: Header */}
-          <div className="w-full lg:w-1/3">
+          <div className="w-full lg:w-1/3 animate-fade-in-up animate-on-scroll">
             <div className="text-xs font-mono text-slate-500 mb-2 uppercase tracking-widest">
               05 — Protocols
             </div>
@@ -43,7 +43,7 @@ export default function FAQSection() {
           </div>
 
           {/* Right Column: Accordion */}
-          <div className="w-full lg:w-2/3">
+          <div className="w-full lg:w-2/3 animate-fade-in-up animate-on-scroll delay-200">
             <div className="border-t border-white/10">
               {faqs.map((faq, index) => (
                 <div key={index} className="border-b border-white/10">

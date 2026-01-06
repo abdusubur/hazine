@@ -65,7 +65,7 @@ export default function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 animate-fade-in-up animate-on-scroll">
           <h2 className="text-5xl md:text-6xl font-medium tracking-tight mb-6">
             Loved by <span className="text-slate-500">passionate builders</span>
           </h2>
@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Masonry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up animate-on-scroll delay-200">
           
           {/* Column 1 */}
           <div className="space-y-6">

@@ -1,17 +1,18 @@
 "use client";
 
+import { WavyBackground } from "./ui/wavy-background";
+
 export default function FooterCTA() {
   return (
     <section className="bg-[#020004] py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[3rem] bg-[#0a0a0a] border border-white/5">
+      <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[3rem] bg-[#0a0a0a] border border-white/5 animate-fade-in-up animate-on-scroll">
         
-        {/* Aurora Background Effect */}
-        <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-[-50%] left-[-20%] w-[80%] h-[150%] bg-indigo-600/20 blur-[120px] rounded-full mix-blend-screen transform rotate-12"></div>
-            <div className="absolute bottom-[-50%] right-[-20%] w-[80%] h-[150%] bg-purple-600/20 blur-[120px] rounded-full mix-blend-screen transform -rotate-12"></div>
-            <div className="absolute top-[20%] left-[30%] w-[40%] h-[40%] bg-blue-500/10 blur-[80px] rounded-full mix-blend-screen"></div>
-        </div>
-
+        <WavyBackground 
+            className="max-w-4xl mx-auto"
+            containerClassName="h-full min-h-[600px]"
+            waveOpacity={0.3}
+            colors={["#4f46e5", "#7c3aed", "#3b82f6", "#22d3ee"]}
+        >
         <div className="relative z-10 px-8 py-20 md:px-20 md:py-24 flex flex-col items-center text-center">
           
           {/* Newsletter Content */}
@@ -93,6 +94,7 @@ export default function FooterCTA() {
           </div>
 
         </div>
+        </WavyBackground>
       </div>
     </section>
   );

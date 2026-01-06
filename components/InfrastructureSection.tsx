@@ -26,7 +26,7 @@ export default function InfrastructureSection() {
         <div className="max-w-7xl mx-auto px-8 relative z-10 flex flex-col lg:flex-row gap-20 items-center lg:items-start h-[800px]">
             
             {/* Left Column: Content */}
-            <div className="w-full lg:w-5/12 space-y-10 pt-10 sticky top-24 self-start">
+            <div className="w-full lg:w-5/12 space-y-10 pt-10 sticky top-24 self-start animate-fade-in-up animate-on-scroll">
                 <div className="space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 w-fit">
                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
@@ -75,7 +75,7 @@ export default function InfrastructureSection() {
             </div>
 
             {/* Right Column: Animated Cards */}
-            <div className="w-full lg:w-7/12 h-full relative gradient-border-mask overflow-hidden">
+            <div className="w-full lg:w-7/12 h-full relative gradient-border-mask overflow-hidden animate-fade-in-up animate-on-scroll delay-200">
                 <div className="grid grid-cols-2 gap-5 h-full">
                     
                     {/* Column 1 (Scrolling Up) */}
@@ -109,14 +109,6 @@ export default function InfrastructureSection() {
                 </div>
             </div>
 
-        </div>
-        
-        {/* Floating Footer Badge */}
-        <div className="absolute bottom-6 right-6 z-20">
-            <div className="bg-[#111] border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 shadow-2xl">
-                <svg className="w-3 h-3 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                <span className="text-xs font-medium text-slate-400">Made in Aura</span>
-            </div>
         </div>
     </section>
   );

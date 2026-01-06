@@ -14,7 +14,7 @@ export default function FeatureSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-20 gap-8 relative">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-20 gap-8 relative animate-fade-in-up animate-on-scroll">
             <div className="relative z-10">
                 {/* Large Background Number */}
                 <span className="absolute -left-6 -top-16 text-[140px] font-bold text-white/5 select-none -z-10 leading-none font-sans">01.</span>
@@ -34,7 +34,7 @@ export default function FeatureSection() {
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-24 animate-fade-in-up animate-on-scroll delay-200">
             
             {/* Left Card: Dashboard Interface */}
             <div className="bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between min-h-[450px]">
@@ -153,7 +153,7 @@ export default function FeatureSection() {
         </div>
 
         {/* Bottom Features Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-white/5 pt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-white/5 pt-16 animate-fade-in-up animate-on-scroll delay-400">
             
             {/* Column 1 */}
             <div className="group">

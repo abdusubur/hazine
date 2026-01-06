@@ -78,7 +78,7 @@ const logos = [
 
 export default function LogoTicker() {
   return (
-    <section className="bg-black py-12 w-full overflow-hidden border-t border-white/5">
+    <section className="bg-black py-12 w-full overflow-hidden border-t border-white/5 animate-fade-in-up animate-on-scroll">
       <div className="relative flex items-center">
         
         {/* Gradient Masks for edge fading */}

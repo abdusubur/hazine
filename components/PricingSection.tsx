@@ -10,7 +10,7 @@ export default function PricingSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 animate-fade-in-up animate-on-scroll">
           <div>
             <div className="text-xs font-mono text-slate-500 mb-2 uppercase tracking-widest">
               07 — Investment
@@ -36,7 +36,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full animate-fade-in-up animate-on-scroll delay-200">
           
           {/* Card 1: Audit */}
           <div className="border border-white/10 rounded-2xl p-8 flex flex-col justify-between hover:border-white/20 transition-colors bg-[#050505] min-h-[500px]">
