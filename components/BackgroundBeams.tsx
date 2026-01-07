@@ -7,6 +7,9 @@ export default function BackgroundBeams() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Mobilde heavy scripti çalıştırma
+    if (window.innerWidth < 768) return;
+
     const run = () => {
       if ((window as any).UnicornStudio) {
         (window as any).UnicornStudio.init();
@@ -30,6 +33,7 @@ export default function BackgroundBeams() {
   return (
     <div className="fixed inset-0 z-0 w-full h-full bg-[#020004]">
       <div
+        className="hidden md:block"
         data-us-project="hSq548hqKa7TvN5bVL0X"
         style={{ width: "100%", height: "100%" }}
       />
