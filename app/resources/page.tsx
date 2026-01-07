@@ -5,7 +5,7 @@ export default function ResourcesPage() {
   return (
     <main className="min-h-screen flex flex-col bg-[#020004]">
       <Header />
-      <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-center">
+      <div className="pt-32 z-1 pb-20 px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl md:text-6xl font-medium text-white mb-6 tracking-tight">
           Resources & <br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Documentation</span>
@@ -15,7 +15,7 @@ export default function ResourcesPage() {
         </p>
       </div>
 
-      <section className="py-12 px-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+      <section className="py-12 z-1 px-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
         
         {/* Resource Card 1 */}
         <a href="#" className="group bg-[#0a0a0a] border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-colors">

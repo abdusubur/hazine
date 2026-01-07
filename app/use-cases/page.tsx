@@ -6,7 +6,7 @@ export default function UseCasesPage() {
   return (
     <main className="min-h-screen flex flex-col bg-[#020004]">
       <Header />
-      <div className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 text-center">
+      <div className="pt-32 z-1 pb-20 px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl md:text-6xl font-medium text-white mb-6 tracking-tight">
           Built for <br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">Every Business Model</span>
@@ -16,7 +16,7 @@ export default function UseCasesPage() {
         </p>
       </div>
       
-      <section className="py-20 px-4">
+      <section className="py-20 z-1 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Use Case 1 */}
             <div className="bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-colors">

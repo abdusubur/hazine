@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import BackgroundBeams from "./BackgroundBeams";
 import DashboardMockup from "./DashboardMockup";
 import Link from "next/link";
 
@@ -28,8 +27,6 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 w-full overflow-x-hidden">
 
-            {/* Background with Beams & Glow */}
-            <BackgroundBeams />
 
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
 

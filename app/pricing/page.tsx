@@ -7,7 +7,7 @@ export default function PricingPage() {
   return (
     <main className="min-h-screen flex flex-col bg-[#020004]">
       <Header />
-      <div className="pt-32 px-4 sm:px-6 lg:px-8 text-center">
+      <div className="pt-32 z-1 pb-20 px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl md:text-6xl font-medium text-white mb-6 tracking-tight">
           Transparent <br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Pricing</span>
